@@ -1,1 +1,36 @@
+##################################################################
+# BASIC SETUP
+##################################################################
+server:
+  port: 6080
+  servlet:
+    context-path: /zadanie
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  error:
+    include-exception: true
+    include-binding-errors: always
+    include-message: always
+    include-stacktrace: always
 
+
+  ##################################################################
+  # ADVANCED SETUP
+  ##################################################################
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: zbanowany
+    url: jdbc:postgresql://localhost:5432/zadanie_db
+    platform: postgres
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    database: postgresql
