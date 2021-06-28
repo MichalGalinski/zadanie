@@ -34,12 +34,14 @@ public class ContractorController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-//    @GetMapping("/getContractorById")
-//    public ResponseEntity<ContractorDto> getContractorById(@RequestParam final int contractorId) {
-//        return  ResponseEntity.ok(contractorService.getContractorById(contractorId));
-//        Optional<ContractorDto> contractorDto = contractorService.getContractorById(contractorId);
-//
-//        return contractorDto.map(c -> ResponseEntity.ok().body(c))
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @PostMapping("/setContractorNameById")
+    public ResponseEntity<ContractorDto> setContractorNameById(@RequestParam int contractorId, @RequestParam String name){
+        contractorService.setContractorNameById(contractorId, name);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/getContractorById")
+    public ResponseEntity<ContractorDto> getContractorById(@RequestParam int contractorId) {
+        return  ResponseEntity.ok(contractorService.getContractorById(contractorId));
+    }
 }
